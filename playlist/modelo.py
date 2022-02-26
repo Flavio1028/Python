@@ -26,15 +26,23 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
+    def __str__(self):
+        return f' {self._nome} - {self.ano} - {self.duracao} mim - {self._likes}  Likes '
+
 class Serie(Programa):
 
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
+    def __str__(self):
+        return f' {self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes}  Likes '
+
 
 vingadores = Filme('Vingadores - guerra infinita', 2018, 160)
-print(f'Nome: {vingadores.nome} - Ano: {vingadores.ano} - Duração: {vingadores.duracao}')
-
 atlanta = Serie("Atlanta", 2018, 2)
-print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano} - Temporadas: {atlanta.temporadas}')
+
+filmes_e_series = [vingadores, atlanta]
+
+for programa in filmes_e_series:
+    print(programa)
