@@ -1,26 +1,6 @@
-url = "https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real"
+from extrator_url import ExtratorUrl
 
-# Sanitização da URL
-url = url.strip()
-
-# Validação da URL
-if url == "":
-    raise ValueError("A URL está vazia")
-
-# Separa base e os parâmetros
-indice_interrogacao = url.find('?')
-url_base = url[:indice_interrogacao]
-
-url_parametro = url[(indice_interrogacao + 1):]
-print(url_parametro)
-
-# Busca o valor de um parâmetro
-parametro_busca = 'moedaOrigem'
-indice_parametro = url_parametro.find(parametro_busca)
-indice_valor = indice_parametro + len(parametro_busca) + 1
-indice_e_comercial = url_parametro.find('&', indice_valor)
-if indice_e_comercial == -1:
-    valor = url_parametro[indice_valor:]
-else:
-    valor = url_parametro[indice_valor:indice_e_comercial]
+extrator_url = ExtratorUrl("https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real")
+valor = extrator_url.get_valor_parametro("quantidade")
 print(valor)
+
