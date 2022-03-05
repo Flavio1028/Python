@@ -20,3 +20,4 @@ print(telefone_objeto)
 
 cadastro = DatasBr()
 cadastro.format_data()
+print(cadastro.tempo_cadastro())
