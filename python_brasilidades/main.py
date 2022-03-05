@@ -1,6 +1,7 @@
 from cpfCnpj import Documento
 from TelefonesBr import TelefonesBr
 from DatasBr import DatasBr
+from acesso_cep import BuscaEndereco
 
 # 15316264754
 cpf = 15316264754
@@ -21,3 +22,8 @@ print(telefone_objeto)
 cadastro = DatasBr()
 cadastro.format_data()
 print(cadastro.tempo_cadastro())
+
+cep = "75712450"
+objeto_cep = BuscaEndereco(cep)
+print(objeto_cep.acessa_via_cep())
+
